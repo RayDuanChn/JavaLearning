@@ -1,0 +1,38 @@
+package com.ray.javaweb;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+class NewLogin extends LoginServlet {
+	
+    
+
+	@Override
+	public void init() throws ServletException {
+		
+		super.init(config);
+	}
+
+	@Override
+	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+		ServletConfig servletConfig = this.getServletConfig();
+		
+		String name = servletConfig.getInitParameter("user");
+		String password = servletConfig.getInitParameter("password");
+		String inputName = request.getParameter("user");
+		String inputPassword = request.getParameter("password");
+		PrintWriter out = response.getWriter();
+		if(name.equals(inputName) && password.equals(inputPassword)) {
+			out.println("Wellcom: " + name);
+		}else {
+			out.println("Sorry: xxx xxx " + name);
+		}
+		
+	}
+	
+}

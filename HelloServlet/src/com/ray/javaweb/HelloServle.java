@@ -1,0 +1,10 @@
+package com.ray.javaweb;
+
+public class HelloServle {
+		
+	public String  getInfo() {
+		
+		return "HellServlet!";
+	}
+
+}
